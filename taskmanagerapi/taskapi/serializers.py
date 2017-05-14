@@ -3,7 +3,7 @@ Serializers
 """
 
 from rest_framework import serializers
-from .models import Task, Comment
+from .models import Task, Comment, User
 
 class TaskSerializer(serializers.ModelSerializer):
     """
@@ -35,4 +35,19 @@ class CommentSerializer(serializers.ModelSerializer):
             'task',
             'created_by',
             'text',
+        )
+
+class UserSerializer(serializers.ModelSerializer):
+    """
+    Serializer for User Model
+    """
+    class Meta:
+        model = User
+        fields = (
+            'username',
+            'first_name',
+            'last_name',
+            'email',
+            'notification_arn',
+            'is_notifiable',
         )

@@ -7,8 +7,8 @@ from rest_framework import status
 from rest_framework.parsers import JSONParser
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import Task, Comment
-from .serializers import TaskSerializer, CommentSerializer
+from .models import Task, Comment, User
+from .serializers import TaskSerializer, CommentSerializer, UserSerializer
 
 
 # Create your views here.
@@ -102,3 +102,60 @@ def comments_by_id(request, comment_id):
     elif request.method == 'DELETE':
         comment.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+@api_view(['GET'])
+def comments_by_task_id(request, task_id):
+    """
+    Get Comments by Task Id
+    """
+
+    if request.method == 'GET':
+        comments = Comment.objects.filter(task=task_id)
+        serializer = CommentSerializer(comments, many=True)
+        return Response(serializer.data)
+
+@api_view(['GET', 'POST'])
+def users(request):
+    """
+    Functions for Users with no id
+    """
+
+    if request.method == 'GET':
+        users = User.objects.all()
+        serializer = UserSerializer(users, many=True)
+        return Response(serializer.data)
+
+    elif request.method == 'POST':
+        data = JSONParser().parse(request)
+        serializer = UserSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['GET', 'PUT', 'DELETE'])
+def users_by_id(request, user_id):
+    """
+    Functions for Users with an id
+    """
+
+    try:
+        user = User.objects.get(pk=user_id)
+    except:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':
+        serializer = UserSerializer(user)
+        return Response(serializer.data)
+
+    elif request.method == 'PUT':
+        data = JSONParser().parse(request)
+        serializer = UserSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    elif request.method == 'DELETE':
+        user.delete()
+        return Reponse(status=status.HTTP_204_NO_CONTENT)
