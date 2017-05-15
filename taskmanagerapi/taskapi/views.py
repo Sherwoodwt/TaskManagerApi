@@ -159,3 +159,23 @@ def users_by_id(request, user_id):
     elif request.method == 'DELETE':
         user.delete()
         return Reponse(status=status.HTTP_204_NO_CONTENT)
+
+@api_view(['GET'])
+def tasks_by_assignee_id(request, user_id):
+    """
+    Returns all tasks that user_id is assigned to
+    """
+    if request.method == 'GET':
+        tasks = Task.objects.filter(assignees__pk=user_id)
+        serializer = TaskSerializer(tasks, many=True)
+        return Response(serializer.data)
+
+@api_view(['GET'])
+def tasks_by_created_by_id(request, user_id):
+    """
+    Returns all tasks that user_id created
+    """
+    if request.method == 'GET':
+        tasks = Task.objects.filter(created_by=user_id)
+        serializer = TaskSerializer(tasks, many=True)
+        return Response(serializer.data)
