@@ -5,8 +5,10 @@ Views for task api
 from django.http.response import HttpResponse, JsonResponse
 from rest_framework import status
 from rest_framework.parsers import JSONParser
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, renderer_classes
 from rest_framework.response import Response
+from rest_framework.renderers import CoreJSONRenderer
+from rest_framework.schemas import SchemaGenerator
 from .models import Task, Comment, User
 from .serializers import TaskSerializer, CommentSerializer, UserSerializer
 
@@ -179,3 +181,12 @@ def tasks_by_created_by_id(request, user_id):
         tasks = Task.objects.filter(created_by=user_id)
         serializer = TaskSerializer(tasks, many=True)
         return Response(serializer.data)
+
+@api_view(['GET'])
+@renderer_classes([CoreJSONRenderer])
+def schema(request):
+    """
+    Uses schema generator to return schema json
+    """
+    generator = SchemaGenerator(title='Task API')
+    return Response(generator.get_schema())

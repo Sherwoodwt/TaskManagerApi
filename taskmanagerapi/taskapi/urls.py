@@ -10,7 +10,12 @@ from .views import (
     users_by_id,
     tasks_by_assignee_id,
     tasks_by_created_by_id,
+    schema,
 )
+
+from rest_framework_swagger.views import get_swagger_view
+
+schema_view = get_swagger_view(title='Task API')
 
 urlpatterns = [
     url(r'^tasks/$', tasks),
@@ -22,4 +27,5 @@ urlpatterns = [
     url(r'^users/(?P<user_id>[0-9]+)/$', users_by_id),
     url(r'^users/(?P<user_id>[0-9]+)/assigned_tasks/$', tasks_by_assignee_id),
     url(r'^users/(?P<user_id>[0-9]+)/created_tasks/$', tasks_by_created_by_id),
+    url(r'^schema/$', schema_view),
 ]

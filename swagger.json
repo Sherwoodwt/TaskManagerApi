@@ -1,0 +1,384 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Task API",
+        "version": ""
+    },
+    "host": "localhost:8000",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/api/comments/": {
+            "get": {
+                "operationId": "comments_list",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "parameters": [],
+                "description": "Functions for Comments with no id",
+                "summary": "Functions for Comments with no id",
+                "tags": [
+                    "comments"
+                ]
+            },
+            "post": {
+                "operationId": "comments_create",
+                "responses": {
+                    "201": {
+                        "description": ""
+                    }
+                },
+                "parameters": [],
+                "description": "Functions for Comments with no id",
+                "summary": "Functions for Comments with no id",
+                "tags": [
+                    "comments"
+                ]
+            }
+        },
+        "/api/comments/{comment_id}/": {
+            "get": {
+                "operationId": "comments_read",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "comment_id",
+                        "required": true,
+                        "in": "path",
+                        "description": "",
+                        "type": "string"
+                    }
+                ],
+                "description": "Functions for Comments with an id",
+                "summary": "Functions for Comments with an id",
+                "tags": [
+                    "comments"
+                ]
+            },
+            "put": {
+                "operationId": "comments_update",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "comment_id",
+                        "required": true,
+                        "in": "path",
+                        "description": "",
+                        "type": "string"
+                    }
+                ],
+                "description": "Functions for Comments with an id",
+                "summary": "Functions for Comments with an id",
+                "tags": [
+                    "comments"
+                ]
+            },
+            "delete": {
+                "operationId": "comments_delete",
+                "responses": {
+                    "204": {
+                        "description": ""
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "comment_id",
+                        "required": true,
+                        "in": "path",
+                        "description": "",
+                        "type": "string"
+                    }
+                ],
+                "description": "Functions for Comments with an id",
+                "summary": "Functions for Comments with an id",
+                "tags": [
+                    "comments"
+                ]
+            }
+        },
+        "/api/tasks/": {
+            "get": {
+                "operationId": "tasks_list",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "parameters": [],
+                "description": "Functions for Tasks with no id",
+                "summary": "Functions for Tasks with no id",
+                "tags": [
+                    "tasks"
+                ]
+            },
+            "post": {
+                "operationId": "tasks_create",
+                "responses": {
+                    "201": {
+                        "description": ""
+                    }
+                },
+                "parameters": [],
+                "description": "Functions for Tasks with no id",
+                "summary": "Functions for Tasks with no id",
+                "tags": [
+                    "tasks"
+                ]
+            }
+        },
+        "/api/tasks/{task_id}/": {
+            "get": {
+                "operationId": "tasks_read",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "task_id",
+                        "required": true,
+                        "in": "path",
+                        "description": "",
+                        "type": "string"
+                    }
+                ],
+                "description": "Functions for Tasks with an id",
+                "summary": "Functions for Tasks with an id",
+                "tags": [
+                    "tasks"
+                ]
+            },
+            "put": {
+                "operationId": "tasks_update",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "task_id",
+                        "required": true,
+                        "in": "path",
+                        "description": "",
+                        "type": "string"
+                    }
+                ],
+                "description": "Functions for Tasks with an id",
+                "summary": "Functions for Tasks with an id",
+                "tags": [
+                    "tasks"
+                ]
+            },
+            "delete": {
+                "operationId": "tasks_delete",
+                "responses": {
+                    "204": {
+                        "description": ""
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "task_id",
+                        "required": true,
+                        "in": "path",
+                        "description": "",
+                        "type": "string"
+                    }
+                ],
+                "description": "Functions for Tasks with an id",
+                "summary": "Functions for Tasks with an id",
+                "tags": [
+                    "tasks"
+                ]
+            }
+        },
+        "/api/tasks/{task_id}/comments/": {
+            "get": {
+                "operationId": "tasks_comments_list",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "task_id",
+                        "required": true,
+                        "in": "path",
+                        "description": "",
+                        "type": "string"
+                    }
+                ],
+                "description": "Get Comments by Task Id",
+                "summary": "Get Comments by Task Id",
+                "tags": [
+                    "tasks"
+                ]
+            }
+        },
+        "/api/users/": {
+            "get": {
+                "operationId": "users_list",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "parameters": [],
+                "description": "Functions for Users with no id",
+                "summary": "Functions for Users with no id",
+                "tags": [
+                    "users"
+                ]
+            },
+            "post": {
+                "operationId": "users_create",
+                "responses": {
+                    "201": {
+                        "description": ""
+                    }
+                },
+                "parameters": [],
+                "description": "Functions for Users with no id",
+                "summary": "Functions for Users with no id",
+                "tags": [
+                    "users"
+                ]
+            }
+        },
+        "/api/users/{user_id}/": {
+            "get": {
+                "operationId": "users_read",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "required": true,
+                        "in": "path",
+                        "description": "",
+                        "type": "string"
+                    }
+                ],
+                "description": "Functions for Users with an id",
+                "summary": "Functions for Users with an id",
+                "tags": [
+                    "users"
+                ]
+            },
+            "put": {
+                "operationId": "users_update",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "required": true,
+                        "in": "path",
+                        "description": "",
+                        "type": "string"
+                    }
+                ],
+                "description": "Functions for Users with an id",
+                "summary": "Functions for Users with an id",
+                "tags": [
+                    "users"
+                ]
+            },
+            "delete": {
+                "operationId": "users_delete",
+                "responses": {
+                    "204": {
+                        "description": ""
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "required": true,
+                        "in": "path",
+                        "description": "",
+                        "type": "string"
+                    }
+                ],
+                "description": "Functions for Users with an id",
+                "summary": "Functions for Users with an id",
+                "tags": [
+                    "users"
+                ]
+            }
+        },
+        "/api/users/{user_id}/assigned_tasks/": {
+            "get": {
+                "operationId": "users_assigned_tasks_list",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "required": true,
+                        "in": "path",
+                        "description": "",
+                        "type": "string"
+                    }
+                ],
+                "description": "Returns all tasks that user_id is assigned to",
+                "summary": "Returns all tasks that user_id is assigned to",
+                "tags": [
+                    "users"
+                ]
+            }
+        },
+        "/api/users/{user_id}/created_tasks/": {
+            "get": {
+                "operationId": "users_created_tasks_list",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "required": true,
+                        "in": "path",
+                        "description": "",
+                        "type": "string"
+                    }
+                ],
+                "description": "Returns all tasks that user_id created",
+                "summary": "Returns all tasks that user_id created",
+                "tags": [
+                    "users"
+                ]
+            }
+        }
+    },
+    "securityDefinitions": {
+        "basic": {
+            "type": "basic"
+        }
+    }
+}
